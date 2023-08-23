@@ -88,7 +88,7 @@ def get_audio_features():
     id_list = tracks["track_id"].to_list()
     id_list = list(set(id_list))
     q = len(id_list)
-    chunks = q/99
+    chunks = q/50
     list_group = np.array_split(id_list, chunks)
     ch_number = 0
     for d in tqdm(list_group):
@@ -186,7 +186,7 @@ for index, row in sources.iterrows():
     data = {} # diccionari per guardar tot
     data["playlist_id"] = row["Id"]
     data["playlist_name"] = row["Nombre"]
-    # get_playlist_items(data, loop, o)
+    get_playlist_items(data, loop, o)
 
 recap_all_tracks()
 get_audio_features()
